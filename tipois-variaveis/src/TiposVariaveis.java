@@ -1,19 +1,19 @@
+package Operadores;
 import java.util.Calendar;
+import java.util.Date;
 
-public class Teste {
-      public static void main(String[] args) throws Exception {
+public class TiposVariaveis {
+    public static void main(String[] args) throws Exception {
 
-        String meuNome = "Diego Cristiano de Souza Vieira";
-        int idade = 29;
-        Calendar c1 = Calendar.getInstance();
-        int hora = c1.get(Calendar.HOUR_OF_DAY);
-        if(hora >= 6 && hora < 12)
-            System.out.println("Bom Dia");
-        else if(hora >= 12 && hora <= 18)
-            System.out.println("Boa Tarde");
-        else
-            System.out.println("Boa Noite");
+        double salarioMinimo = 2500;
+        short numeroCurto = 1;
+        int numeroNormal = numeroCurto;
+        short numeroCurto2 = (short) numeroNormal;
 
-        System.out.println("O meu nome é " + meuNome + " e minnha idade é " + idade + " anos." );
-      }
+        int numero = 5;
+        numero = 10;
+        //System.out.println(numero);
+        final double VALOR_DE_PI = 3.14;
+         //VALOR_DE_PI = 10.75; - PELA VARIÁVEL SER FINAL , NÃO PODE SER ATRUBUIDO OUTRO VALOR
+    }
 }
