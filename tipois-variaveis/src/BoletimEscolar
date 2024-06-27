@@ -1,0 +1,21 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class BoletimEscolar {
+    public static void main(String[] args) {
+          Scanner scanner = new Scanner (System.in).useLocale(Locale.US);
+          System.out.println("NOTA 1: ");
+          double nota1 = scanner.nextDouble();
+          System.out.println("NOTA 2:");
+          double nota2 = scanner.nextDouble();
+          double media = (nota1 + nota2)/2;
+          if(media >= 7){
+            System.out.println("MEDIA: " + media + "\n" + "APROVADO!");
+          }else if(media >=5 && media < 7){
+            System.out.println("MEDIA:" + media + "\n" + "RECUPERAÇÃO");
+          }else{
+            System.out.println("MEDIA:" + media + "\n" + "REPROVADO");
+          }
+        
+    }
+    
