@@ -1,7 +1,9 @@
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class AboutMe {
+  
     public static void main(String[] args) {
 
     Scanner scanner = new Scanner (System.in).useLocale(Locale.US);
@@ -9,13 +11,24 @@ public class AboutMe {
     String nome = scanner.next();
     System.out.println("Digite seu sobrenome: ");
     String sobrenome = scanner.next();
+try{
     System.out.println("Digite sua idade: ");
     int idade = scanner.nextInt();
+} catch (InputMismatchException e) {
+    System.out.println("Por favor digite uma idade válida.");
+    return;
+ }
+
+try{
     System.out.println("Digite sua altura: ");
     double altura = scanner.nextDouble();
-
+ } catch (InputMismatchException f) {
+    System.out.println("Por favor digite a altura em centímetros.");
+    return;
+ }
+    scanner.close();
     System.out.println("Ola " + nome + " " + sobrenome + "\n" + "Seja Bem Vindo.");
-    }
-
+ 
 }
-    
+}
+
