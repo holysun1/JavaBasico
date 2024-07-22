@@ -1,0 +1,38 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class CaixaEletronico {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner (System.in).useLocale(Locale.US);
+        double saldo = 25.0;        
+        while (saldo > 0) {
+        System.out.println("Seu saldo é de:" + saldo);
+        System.out.print("Gostaria de Depositar ou Sacar?");
+        System.out.print("\n" + "1 = SACAR" + "\n" + "2 - DEPOSITAR"+ "\n" + "3 - SAIR" + "\n");
+        int resposta = scanner.nextInt();
+        if(resposta == 1)
+        {
+        System.out.println("Qual valor gostaria de sacar?");
+        Double saque = scanner.nextDouble();
+        
+        if(saque > saldo){
+            System.out.println("Saldo indísponível");
+            System.out.println("Valor disponível para saque: " + saldo);
+        }else{
+            double saldo1 = saldo - saque;
+            saldo = saldo1;
+        }
+    }else if(resposta == 2){
+        System.out.println("Qual valor gostaria de depositar?");
+        Double deposito = scanner.nextDouble();
+        double saldo2 = deposito + saldo;
+        saldo = saldo2;
+    }
+    else if (resposta == 3){
+        System.out.println("Obrigado, Volte Sempre.");
+        break;
+    }
+    }
+}
+    
+}
