@@ -1,0 +1,91 @@
+package ProjetoDio;
+
+import java.net.URI;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.Random;
+import java.awt.Desktop;
+
+public class ProjetoDio extends telefone{
+    public static void main(String[] args ) {
+
+        int funcao = 0;
+        int numero;
+        int i = 0;
+        Random R = new Random();
+
+        telefone Telefone = new telefone();
+        
+        Scanner scanner = new Scanner (System.in).useLocale(Locale.US);
+
+        while(funcao < 4){
+        System.out.println("Gostaria de:" +  "\n" + "1 - Telefonar"+ "\n" +"2 - Tocar Música" + "\n" + "3 - Internet" + "\n" + "4 - Sair");
+        funcao = scanner.nextInt();
+            if (funcao == 1) {
+                System.out.println("Para qual número você deseja ligar? ");
+                numero = scanner.nextInt();
+                Telefone.setLigar(numero);
+                System.out.println("Ligando para o número: " + numero);
+                while( i <= 5){
+                    Telefone.tocar();
+                    boolean r = R.nextBoolean();
+                    //System.out.println(Telefone.tocar + " - função tocar");
+                    System.out.println("\n" + "Tocando");
+                    //System.out.println(r + " - função atender");
+                if(r == true){
+                    System.out.println("\n" + "Atendeu." + "\n");
+                    break;
+                }else
+                    i++;
+                    //System.out.println("Tentar novamente");
+                }
+                if( i > 5)
+                    System.out.println("O número chamado não atendeu." + "\n");
+                    i = 0;
+            }else if(funcao == 2){
+                System.out.println("Digite o nome da música: ");
+        
+                String musica = scanner.next();
+                Telefone.tocarMusica();
+
+                System.out.println("Tocando a música : " + musica);
+                System.out.println(Telefone.tocar);
+                System.out.println("Deseja pausar a música? Pressione 1 para sim, 2 para não." );
+                int pausarM = scanner.nextInt();
+                if (pausarM == 1) {
+                    Telefone.pausarMusica();
+                    System.out.println("Música Pausada." +"\n");
+                }else{
+                    System.out.println("Continua Tocando a Música." + "\n");
+                    System.out.println("Deseja aumentar o volume? Pressione 1 para sim, 2 para não. ");
+                    int volume = scanner.nextInt();
+                    if( volume == 1){
+                        while(volume < 10){
+                            Telefone.aumentarVolume();
+                            volume++;
+                        }
+                        System.out.println("Aumentando o volume. " + volume);
+                        System.out.println("Deseja diminuir o volume? Pressione 1 para sim, 2 para não. ");
+                        int diminuir = scanner.nextInt();
+                        if(diminuir == 1){
+                            while(volume > 0){
+                                Telefone.diminuirVolume();
+                                volume --;
+                        }System.out.println("O volume é: " + volume);
+                    }
+                }
+            }
+            }else if(funcao == 3){
+                  try{
+                    System.out.println("Digite o link que deseja visitar.");
+                    String link1 = scanner.next();       
+                    URI link = new URI(link1);
+                    Desktop.getDesktop().browse(link);
+                }catch(Exception erro){
+            System.out.println("Link não existe");
+        }
+    } 
+    }
+    System.out.println("Telefone Bloqueado.");
+    }
+}
