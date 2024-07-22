@@ -1,0 +1,40 @@
+package ProjetoDio;
+
+public class telefone {
+    private String musica;
+    boolean tocar = false;
+    boolean pausar = true;
+    int volume;
+    int pausarM;
+    int numero = 0;
+    boolean atender = false;
+
+    public void setMusica(String newMusica) {
+        musica = newMusica;
+    } 
+    public String getMusica(){
+        return musica;
+    }
+    public void tocarMusica(){
+        tocar = true;    
+    }
+    public void pausarMusica(){
+        pausar = false;
+    }
+    public void aumentarVolume(){
+        volume ++;
+    }
+    public void diminuirVolume(){
+        volume --;
+    }
+    public void setLigar(int newNumero) {
+       numero = newNumero;
+    }
+    public void tocar(){
+        tocar = true;
+    }
+    public void atender(){
+        atender = true;
+    }
+    
+}
