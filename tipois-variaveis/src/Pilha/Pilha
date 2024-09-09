@@ -1,0 +1,66 @@
+public class Pilha {
+
+    private No refNoEntradaPilha;
+    // Referencia de entrada da pilha
+
+
+    public Pilha() {
+        this.refNoEntradaPilha = null;
+    }
+
+    public void push(No novoNo){
+        //Método push - acrescenta um nó na pilha
+        No refAuxiliar = refNoEntradaPilha;
+        //Armazena a referência de entrada
+        refNoEntradaPilha = novoNo;
+        //Atribuo a referencia de topo como novo Nó
+        refNoEntradaPilha.setRefNo(refAuxiliar);
+        //Referencia do No que esta abaixo dele é o antigo Topo
+    }
+
+    public No pop(){
+        if(!this.isEmpty()){
+            //verificar se a pilha esta vazia ou não
+            No noPoped = refNoEntradaPilha;
+            //Nó que foi retirado = referencia No de entrada
+            refNoEntradaPilha = refNoEntradaPilha.getRefNo();
+            //Referência de entrada é o nó imediatamente abaixo dele
+            return noPoped;
+        }
+        return null;
+    }
+
+    public No top(){
+        return refNoEntradaPilha;
+        //Topo retorna a referencia de entrada
+    }
+
+    public boolean isEmpty(){
+        return refNoEntradaPilha == null? true : false;
+        //se o método refEntraPilha for nulo, retorna true se não, retorna false
+    }
+
+    @Override
+
+    public String toString(){
+        String stringRetorno = "-------------\n";
+        stringRetorno += "Pilha\n";
+        stringRetorno += "-------------\n";
+
+        No noAuxiliar = refNoEntradaPilha;
+        //No que vamos utilizar para percorrer a pilha
+        while(true){
+            //Loop infinito até que haja uma condição para parar;
+            if(noAuxiliar != null){
+                stringRetorno += "[No{dado = " + noAuxiliar.getDado() + "}]\n";
+                // noAuxiliar é a minha referencia de entrada da pilha
+                noAuxiliar = noAuxiliar.getRefNo();
+                //noAuxiliar agora é o próximo nó
+            }else{
+                break;
+            }
+        }
+        stringRetorno += "=============\n";
+        return stringRetorno;
+    }
+}
